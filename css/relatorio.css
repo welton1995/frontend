@@ -1,0 +1,14 @@
+  body {
+    background-color: #fff;
+  }
+  .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .custom-accordion .card-header {
+    background-color: #007bff; /* Azul */
+    color: #fff; /* Branco */
+  }
