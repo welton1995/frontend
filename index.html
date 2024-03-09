@@ -3,18 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- materialize -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
   <!-- sweetalert -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.all.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.6/dist/sweetalert2.min.css" rel="stylesheet">
   
   <!-- bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
   <!-- meu código -->
@@ -26,8 +20,8 @@
 <!-- Menus-->
   <nav class="navbar text-center">
     <form class="container-fluid justify-content-center">
-      <a  href="./html/cadastro.html" class="btn btn btn-primary me-4" type="button">Cadastrar matricula</a>
-      <a  href="#" class="btn btn btn-primary" type="button">Registros</a>
+      <a  href="./html/cadastro.html" class="btn btn btn-primary me-4" type="button">CADASTRAR MATRÍCULA</a>
+      <a  href="#" class="btn btn btn-primary" type="button">REGISTROS</a>
     </form>
   </nav>
 
@@ -38,20 +32,20 @@
   <form>
     <div class="form-group">
       <label class="form-label" for="matricula">Matrícula 📝</label>
-      <input  class="form-control" type="number" min="0" minlength="1" maxlength='6' id="matricula" required placeholder="nº matrícula">
+      <input  class="form-control" type="number" min="0" minlength="1" maxlength='6' id="matricula" required >
     </div>
 
     <div class="form-group">
       <label class="form-label" for="datahora">Data 📆</label>
-      <input class="form-control" type="datetime-local" id="datahora" required placeholder="Data e hora">
+      <input class="form-control" type="datetime-local" id="datahora" required >
     </div>
 
     <div class="form-group">
       <label class="form-label" for="observacao">Observação 🔍</label>
-      <textarea class="form-control" id="observacao" placeholder="Deixe sua observação aqui!"></textarea>
+      <textarea class="form-control" id="observacao"></textarea>
     </div>
-
-    <input class="btn btn-primary w-100" type="submit" value="Registrar acesso" id="registrar">
+    <a href="./html/recuperarMatricula.html" class='link'>Esqueceu sua matrícula?</a>
+    <input class="btn btn-primary w-100" type="submit" value="REGISTRAR ACESSO" id="registrar">
     <div class="d-flex justify-content-center align-items-center">
       <img src="./img/loading.gif" width="50px" style="display: none;" id="logo">
     </div>

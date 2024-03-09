@@ -31,9 +31,15 @@
       const conteudo = await resposta.json();
 
       if(conteudo == 'Registro removido com sucesso!'){
-        alert('Registro removido com sucesso!');
-        window.location.href = '../index.html';
+        Swal.fire({
+          title: "Registro removido com sucesso!",
+          icon: "success",
+        });
       }
+
+      setTimeout(() => {
+        window.location.href = '../index.html';
+      }, 3000);
 
       console.log(conteudo)
       logo.src='../img/bird.svg';

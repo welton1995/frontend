@@ -15,7 +15,6 @@
         Swal.fire({
           title: "Preencha os campos e tente novamente!",
           icon: "warning",
-          color: "black",
         });
     document.querySelector("#logo").style.display = "none";
     return 
@@ -57,25 +56,12 @@
     }
 
     if(conteudo == 'Matrícula cadastrada com sucesso!'){
+      Swal.fire({
+        title: "Acesso registrado com sucesso",
+        icon: "success"
+      });
       document.querySelector("#logo").style.display = "none";
     }
-
-    // Sweet alert envia msg de sucesso!
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      }
-    });
-    Toast.fire({
-      icon: "success",
-      title: "Acesso registrado"
-    });
 
     setTimeout(() => {
       window.location.reload();
@@ -135,5 +121,5 @@
         document.querySelector('#loading').style.display = 'none';
 
       }
-    }
-    relatorios();
+  }
+  relatorios();

@@ -20,8 +20,12 @@
       logo.src='../img/loading.gif';
 
       if(!data.value && !observacao.value){
-        logo.src='../img/bird.svg';
-        return alert('Preencha os campos para atualizar');
+        Swal.fire({
+          title: "Preencha os campos e tente novamente!",
+          icon: "warning",
+        });
+        logo.style.display = 'none';
+        return;
       }
       try {
         const raw = {
@@ -41,9 +45,13 @@
       const conteudo = await resposta.json();
 
       if(conteudo == 'Registro atualizado com sucesso!'){
-        alert('Registro atualizado com sucesso!');
-        logo.src='../img/loading.gif';
-        window.location.href = '../index.html';
+        Swal.fire({
+          title: "Acesso atualizado com sucesso!",
+          icon: "sucess",
+        });
+        setTimeout(() => {
+          window.location.href = '../index.html';
+        }, 3000);
       }
 
       console.log(conteudo)

@@ -5,22 +5,40 @@
   const cadastrar = document.querySelector('#cadastrar');
   const logo = document.querySelector('#logo');
 
+  //  Função para cadastrar o usúario no Banco de dados
   cadastrar.addEventListener('click', async (event)=>{
     logo.src="../img/loading.gif"
     event.preventDefault();
-    if(!nome.value){
-      return alert('Por favor preencha o campo nome!');
+
+    if(!nome.value){ // Valida nome
+      Swal.fire({
+        title: "Por favor preencha o campo 'Nome'!",
+        icon: "warning",
+      });
+      logo.src = '../img/bird.svg';
+      return
     }
 
-    if(!rg.value || rg.value.length != 9){
-      return alert('O campo RG deve ter 9 digitos');
+    if(!rg.value || rg.value.length != 9){ // Valida RG
+      Swal.fire({
+        title: "O Campo 'RG' deve conter 9 digitos",
+        icon: "warning",
+      });
+      logo.src = '../img/bird.svg';
+      return
     }
-    if(!cpf.value || cpf.value.length != 11){
-      return alert('O campo CPF deve 11 digitos');
+    if(!cpf.value || cpf.value.length != 11){ // Valida CPF
+            Swal.fire({
+        title: "O Campo 'CPF' deve conter 11 digitos",
+        icon: "warning",
+      });
+      logo.src = '../img/bird.svg';
+      return
     }
 
 
     try {
+      // Função que gera um número aleatório
       function gerarMatricula() {
         let numero = Math.floor(Math.random() * 1000000);
         numero = numero.toString().padStart(6, '0');
@@ -46,21 +64,42 @@
     const conteudo = await resposta.json();
 
     if(conteudo == 'Matricula já cadastrada!'){
-      alert(conteudo);
+      Swal.fire({
+        title: "Matrícula já cadastrada. Por favor tente novamente",
+        icon: "error",
+      });
+      logo.src = '../img/bird.svg';
+      return
     }
     if(conteudo == 'RG já cadastrado!'){
-      alert(conteudo);
+      Swal.fire({
+        title: "RG já cadastrado!",
+        icon: "error",
+      });
+      logo.src = '../img/bird.svg';
+      return
     }
     if(conteudo == 'CPF já cadastrado!'){
-      alert(conteudo);
+      Swal.fire({
+        title: "CPF já cadastrado!",
+        icon: "error",
+      });
+      logo.src = '../img/bird.svg';
+      return
     }
 
-    alert(`Matricula cadastrada com sucesso! O número da sua matrícula é:\n ${conteudo.matricula}`)
-
-    window.location.href="../index.html";
+    Swal.fire({
+      title: "Cadastro realizado com sucesso!",
+      icon: "success",
+      html:`O número da sua matrícula é: <h3>${conteudo.matricula}</h3>`
+    });
+    logo.src = '../img/bird.svg';
   
-    // logo.src="../img/bird.svg"
-    
+    // Leva usuario para pagina inicial
+    setTimeout(() => {
+      window.location.href="../index.html";
+    }, 5000);
+  
     } catch (error) {
       console.log(error);
     }
